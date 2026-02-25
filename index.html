@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Google by Oliver</title>
 <style>
 body {
@@ -24,12 +25,20 @@ body {
 .logo span:nth-child(5) { color: #34A853; }
 .logo span:nth-child(6) { color: #EA4335; }
 
-.search-box {
+.sub-logo {
+    display: block;
+    font-size: 24px;
+    color: #555;
+    margin-top: 10px;
+}
+
+.search-section {
     margin-top: 30px;
 }
 
 input[type="text"] {
-    width: 500px;
+    width: 80%;
+    max-width: 500px;
     padding: 12px;
     font-size: 18px;
     border: 1px solid #dcdcdc;
@@ -37,33 +46,68 @@ input[type="text"] {
     outline: none;
 }
 
-input[type="submit"] {
+button, input[type="submit"] {
     padding: 10px 20px;
     font-size: 16px;
     margin-left: 10px;
     border: none;
-    background-color: #f8f9fa;
-    cursor: pointer;
     border-radius: 4px;
+    cursor: pointer;
     transition: background 0.3s;
+}
+
+input[type="submit"] {
+    background-color: #f8f9fa;
+    color: #000;
 }
 
 input[type="submit"]:hover {
     background-color: #f1f1f1;
+}
+
+.mit-button {
+    display: inline-block;
+    margin-left: 10px;
+    background-color: #FF6F00; /* MIT orange */
+    color: white;
+}
+
+.mit-button:hover {
+    background-color: #e65c00;
+}
+
+@media screen and (max-width: 600px) {
+    input[type="text"] {
+        width: 90%;
+    }
+    button, input[type="submit"] {
+        margin-top: 10px;
+        margin-left: 0;
+        display: block;
+        width: 50%;
+        max-width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 </style>
 </head>
 <body>
 
 <div class="logo">
-    <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e by Oliver</span>
+    <span>G</span><span>o</span><span>o</span><span>g</span><span>l</span><span>e</span>
+    <span class="sub-logo">by Oliver</span>
 </div>
 
-<div class="search-box">
-    <form action="https://www.google.com/search" method="GET" target="_blank">
-        <input type="text" name="q" placeholder="Search Google by Oliver">
+<div class="search-section">
+    <form action="https://www.google.com/search" method="GET" target="_blank" style="display:inline-block;">
+        <input type="text" name="q" placeholder="Search Google by Oliver" aria-label="Search">
         <input type="submit" value="Google Search">
     </form>
+
+    <button class="mit-button" onclick="window.open('https://appinventor.mit.edu/', '_blank')">
+        Go to MIT App Inventor
+    </button>
 </div>
 
 </body>
